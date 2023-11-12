@@ -11,10 +11,11 @@ if __name__ == '__main__':
         print("Ex: {} programming 'python java javascript'".format(sys.argv[0]))
     else:
         subreddit = sys.argv[1]
-        keywords = [x.lower() for x in sys.argv[2].split()]  # Convert keywords to lowercase
+        original_keywords = sys.argv[2].split()
+        keywords = [x.lower() for x in original_keywords]  # Convert keywords to lowercase
         result = count_words(subreddit, keywords)
 
-        # Print the result
-        for keyword, count in result.items():
-            print(f"{keyword}: {count}")
+        # Print the result using original keyword casing
+        for original_keyword, count in result.items():
+            print(f"{original_keyword}: {count}")
 
